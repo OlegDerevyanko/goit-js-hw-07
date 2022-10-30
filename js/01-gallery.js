@@ -37,12 +37,15 @@ function onGalleryImageClick(e) {
     instance = basicLightbox.create(`<img src="${galleryImages}" width="800" height="600">`);
         instance.show();
 
-        galleryContainer.addEventListener("keydown", onEscKeyPress);
+        window.addEventListener("keydown", onEscKeyPress);
         console.log('Esc');
 };
         function onEscKeyPress(e) {
       if (e.key === "Escape") {
             instance.close(() => console.log("Esc"));
-        galleryContainer.removeEventListener("keydown", onEscKeyPress);
+          window.removeEventListener("keydown", onEscKeyPress);
+          window.removeEventListener("click", onGalleryImageClick);
       }
+            
+            
     }
